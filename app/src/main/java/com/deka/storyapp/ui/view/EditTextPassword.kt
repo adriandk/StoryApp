@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.Patterns
+import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import com.deka.storyapp.R
 
@@ -25,13 +26,14 @@ class EditTextPassword : AppCompatEditText {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        hint = R.string.password.toString()
+        textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
 
     private fun init() {
+
         addTextChangedListener(object  : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // Do nothing.
-            }
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 error = if (s.length < 6) {
@@ -41,9 +43,7 @@ class EditTextPassword : AppCompatEditText {
                 }
             }
 
-            override fun afterTextChanged(s: Editable) {
-                // Do nothing.
-            }
+            override fun afterTextChanged(s: Editable) {}
 
         })
     }

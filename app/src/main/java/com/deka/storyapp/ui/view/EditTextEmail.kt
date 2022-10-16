@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.Patterns
 import android.util.Patterns.EMAIL_ADDRESS
+import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import com.deka.storyapp.R
 
@@ -26,25 +27,23 @@ class EditTextEmail : AppCompatEditText {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        hint = R.string.email.toString()
+        textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
 
     private fun init() {
         addTextChangedListener(object  : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // Do nothing.
-            }
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 error = if (!EMAIL_ADDRESS.matcher(s).matches()) {
-                    context.getString(R.string.invalid_password)
+                    context.getString(R.string.invalid_email_address)
                 } else {
                     null
                 }
             }
 
-            override fun afterTextChanged(s: Editable) {
-                // Do nothing.
-            }
+            override fun afterTextChanged(s: Editable) {}
 
         })
     }
