@@ -16,6 +16,7 @@ class EditTextPassword : AppCompatEditText {
         init()
     }
 
+
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
     }
@@ -26,10 +27,9 @@ class EditTextPassword : AppCompatEditText {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        hint = R.string.password.toString()
+        setHint(R.string.password)
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
-
     private fun init() {
 
         addTextChangedListener(object  : TextWatcher {

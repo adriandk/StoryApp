@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.DetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/image_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/poster"
+            android:contentDescription="@string/image_desc" />
+
+        <TextView
+            android:id="@+id/name_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adrian Daniel Kristanto"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:id="@+id/desc_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur suscipit eros"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:id="@+id/date_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="15 October 2022"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+</ScrollView>
