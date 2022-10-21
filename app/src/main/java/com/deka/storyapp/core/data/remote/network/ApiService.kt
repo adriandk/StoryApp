@@ -1,25 +1,20 @@
 package com.deka.storyapp.core.data.remote.network
 
-import com.deka.storyapp.core.data.remote.response.LoginResponse
-import com.deka.storyapp.core.data.remote.response.RegisterResponse
-import com.deka.storyapp.core.data.remote.response.StoryResponse
-import com.deka.storyapp.core.data.remote.response.UploadResponse
+import com.deka.storyapp.core.data.remote.response.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface ApiService {
 
-    @FormUrlEncoded
     @POST("login")
-    suspend fun userLogin(
+    suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String
     ): LoginResponse
 
-    @FormUrlEncoded
     @POST("register")
-    suspend fun userRegister(
+    suspend fun register(
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String
@@ -30,11 +25,11 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Query("page") page: Int?,
         @Query("size") size: Int?
-    ): StoryResponse
+    ): ListStoryResponse
 
     @Multipart
     @POST("stories")
-    suspend fun uploadImage(
+    suspend fun uploadStory(
         @Header("Authorization") token: String,
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody
