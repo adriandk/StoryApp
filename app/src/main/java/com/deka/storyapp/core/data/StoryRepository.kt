@@ -44,7 +44,7 @@ class StoryRepository private constructor(
         }
     }
 
-    suspend fun register (name: String, email: String, password: String) :
+    suspend fun register(name: String, email: String, password: String) :
         Flow<Result<RegisterResponse>> = flow{
         try {
             Log.d("Repo", "Success")
