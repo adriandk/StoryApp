@@ -10,17 +10,6 @@ import kotlinx.coroutines.flow.map
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
 
     companion object {
-//        @Volatile
-//        private var INSTANCE: UserPreferences? = null
-//
-//        fun getInstance(dataStore: DataStore<Preferences>): UserPreferences {
-//            return INSTANCE ?: synchronized(this) {
-//                val instance = UserPreferences(dataStore)
-//                INSTANCE = instance
-//                instance
-//            }
-//        }
-
         private val tokenUser = stringPreferencesKey("token")
     }
 
