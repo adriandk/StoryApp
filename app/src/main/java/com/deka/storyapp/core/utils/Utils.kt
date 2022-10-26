@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Environment
 import com.deka.storyapp.R
 import java.io.*
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -97,4 +98,11 @@ fun reduceFileImage(file: File): File {
     bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
 
     return file
+}
+
+fun getDate(date: String): String {
+    val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+    val dateFormat = simpleDateFormat.parse(date) as Date
+
+    return DateFormat.getDateInstance(DateFormat.FULL).format(dateFormat)
 }
